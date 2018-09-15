@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import {TransitionGroup} from 'react-transition-group';
+
 import RaisedButton from 'material-ui/RaisedButton';
 import { indigo400 } from 'material-ui/styles/colors';
 
@@ -15,8 +17,10 @@ export default class Home extends Component {
     super(props);
 
     this.state = {
-      places: data.places
+      places: []
     }
+
+    setTimeout(()=>{ this.setState({places: data.places})}, 100);
 
     this.hidePlace = this.hidePlace.bind(this);
   }
@@ -32,7 +36,7 @@ export default class Home extends Component {
   hidePlace(place){
     this.setState({
       places: this.state.places.filter(el => el !== place)
-    })
+    });
   }
 
   render() {
@@ -56,9 +60,9 @@ export default class Home extends Component {
 
         <div style={{'backgroundColor': indigo400, 'padding': '50px'}}>
           <h3 style={{'color': 'white'}}>Sitios Populares</h3>
-          <div className="row">
+          <TransitionGroup className="row">
             {this.places()}
-          </div>
+          </TransitionGroup>
         </div>
 
       </section>
