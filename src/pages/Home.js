@@ -5,6 +5,7 @@ import {TransitionGroup} from 'react-transition-group';
 import RaisedButton from 'material-ui/RaisedButton';
 import { indigo400 } from 'material-ui/styles/colors';
 
+import Container from '../components/Container';
 import Title from '../components/Title';
 import Benefits from '../components/Benefits';
 import PlaceCard from '../components/places/PlaceCard';
@@ -44,7 +45,7 @@ export default class Home extends Component {
       <section>
 
         <div className="Header-background">
-          <div className="container">
+          <Container>
             <div className="Header-main">
               <Title></Title>
 
@@ -55,7 +56,7 @@ export default class Home extends Component {
             <div>
               <Benefits/>
             </div>
-          </div>
+          </Container>
         </div>
 
         <div style={{'backgroundColor': indigo400, 'padding': '50px'}}>
