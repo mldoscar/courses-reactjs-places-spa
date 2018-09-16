@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import {TransitionGroup} from 'react-transition-group';
 
+import {Link} from 'react-router-dom';
+
 import RaisedButton from 'material-ui/RaisedButton';
 import { indigo400 } from 'material-ui/styles/colors';
 
@@ -48,8 +50,9 @@ export default class Home extends Component {
           <Container>
             <div className="Header-main">
               <Title></Title>
-
-              <RaisedButton label="Crear cuenta gratuita" secondary={true} />
+              <Link to="/register">
+                <RaisedButton label="Crear cuenta gratuita" secondary={true} />
+              </Link>
 
               <img className="Header-illustration" src={process.env.PUBLIC_URL + '/images/places.png'} alt="" />
             </div>
