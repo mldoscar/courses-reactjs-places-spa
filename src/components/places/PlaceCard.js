@@ -19,7 +19,7 @@ export default class Benefits extends Component {
   render() {
     return (
       <FadeAndScale className="col-xs-12 col-sm-4" in={this.props.in}>
-        <div >
+        <div>
           <Card>
             <CardMedia>
               <img src={process.env.PUBLIC_URL + this.props.place.imageUrl} alt=""/>

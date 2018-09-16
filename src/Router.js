@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
-import {BrowserRouter as ReactRouter, Route} from 'react-router-dom'
+import {BrowserRouter as ReactRouter, Route, Switch} from 'react-router-dom';
 
 import App from './App'
 import Dashboard from './pages/Dashboard';
 import Home from './pages/Home';
 import Login from './pages/Login';
 
-const userSignedIn = true;
+const userSignedIn = false;
 
 export default class Router extends Component {
 
@@ -31,10 +31,12 @@ export default class Router extends Component {
     return (
       <ReactRouter>
         <App>
-          <Route exact path="/" component={this.home()}></Route>
-          <Route path="/login" component={Login}></Route>
-          <Route path="/register" component={Login}></Route>
-          {this.signedInRoutes()}
+          <Switch>
+            <Route exact path="/" component={this.home()}></Route>
+            <Route path="/login" component={Login}></Route>
+            <Route path="/register" component={Login}></Route>
+            {this.signedInRoutes()}
+          </Switch>
         </App>
       </ReactRouter>
     )
