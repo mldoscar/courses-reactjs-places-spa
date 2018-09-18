@@ -1,5 +1,23 @@
 import uuid from 'uuid';
 
+function getPlaces(){
+  return fetch("http://localhost:8080/places", {
+    method: 'GET'
+  }).then(data=>{
+    return data.json();
+  }).catch(console.log);
+}
+
+function getPlace(slug){
+  return fetch(`http://localhost:8080/places/${slug}`,{
+    method: 'GET'
+  }).then(data=>{
+    return data.json();
+  }).catch(console.log);
+}
+
+export {getPlaces, getPlace};
+
 export default {
   places: [
     {

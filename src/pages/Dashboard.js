@@ -5,7 +5,7 @@ import {
 import {FlatButton, FloatingActionButton} from 'material-ui';
 import ContentAdd from 'material-ui/svg-icons/content/add';
 
-import data from '../requests/places';
+import {getPlaces} from '../requests/places';
 
 import Container from '../components/Container';
 import PlaceHorizontal from '../components/places/PlaceHorizontal';
@@ -16,13 +16,24 @@ export default class Dashboard extends Component {
     super(props);
 
     this.state = {
-      places: data.places
+      places: []
     }
+
+    this.loadPlaces();
+  }
+
+  loadPlaces() {
+    getPlaces().then(data=>{
+      console.log(data);
+      this.setState({
+        places: data.docs
+      });
+    });
   }
 
   places() {
     return this.state.places.map((place, index)=>{
-      return <PlaceHorizontal place={place}></PlaceHorizontal>
+      return <PlaceHorizontal place={place} key={place._id}></PlaceHorizontal>
     });
   }
 

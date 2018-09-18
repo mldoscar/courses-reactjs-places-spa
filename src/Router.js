@@ -6,8 +6,9 @@ import App from './App'
 import Dashboard from './pages/Dashboard';
 import Home from './pages/Home';
 import Login from './pages/Login';
+import Place from './pages/Place';
 
-const userSignedIn = false;
+const userSignedIn = true;
 
 export default class Router extends Component {
 
@@ -33,6 +34,7 @@ export default class Router extends Component {
         <App>
           <Switch>
             <Route exact path="/" component={this.home()}></Route>
+            <Route exact path="/lugares/:slug" component={Place}></Route>
             <Route path="/login" component={Login}></Route>
             <Route path="/register" component={Login}></Route>
             {this.signedInRoutes()}

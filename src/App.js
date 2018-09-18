@@ -13,11 +13,6 @@ import './App.css';
 
 class App extends Component {
 
-  constructor(props) {
-    super(props);
-    console.log(md5(this.props.location.pathname));
-  }
-
   render() {
     return (
       <MuiThemeProvider>
