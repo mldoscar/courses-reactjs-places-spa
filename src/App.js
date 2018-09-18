@@ -13,11 +13,21 @@ import './App.css';
 
 class App extends Component {
 
+  constructor(props){
+    super(props);
+
+    this.goHome = this.goHome.bind(this);
+  }
+
+  goHome(){
+    this.props.history.push('/');
+  }
+
   render() {
     return (
       <MuiThemeProvider>
         <div>
-          <MyAppBar/>
+          <MyAppBar goHome={this.goHome} />
           <TransitionGroup>
             <CSSTransition
             classNames="left-out"
